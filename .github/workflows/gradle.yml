@@ -21,6 +21,6 @@ jobs:
       - name: Waiting for сontainer start
         run: sleep 30
       - name: Start SUT
-        run: java -jar ./artifacts/app-order.jar &
+        run: java -jar ./artifacts/app-order.jar -P:jdbc.url=jdbc:mysql://localhost:3306/app &
       - name: Build with Gradle
         run: ./gradlew test --info -Dselenide.headless=true
